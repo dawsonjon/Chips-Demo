@@ -82,3 +82,22 @@ For example, the following command will compile, build and download the hello wo
 
 ./run_demo hello_world nexys_4 compile build download run
 
+Troubleshooting
+---------------
+
+### `web_server` demo stopped working
+This might be caused by the network manager that is resetting config,
+see https://github.com/dawsonjon/Chips-Demo/issues/9.
+To fix this, 
+
+```
+$ sudo stop network-manager
+```
+
+and reconfig:
+
+```
+$ sudo ifconfig eth0 192.168.1.0 netmask 255.255.255.0
+$ sudo sysctl -w net.ipv4.tcp_window_scaling=0
+$ sudo sysctl -w net.ipv4.tcp_timestamps=0
+```

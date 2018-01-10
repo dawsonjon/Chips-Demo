@@ -5,7 +5,7 @@ from demo.download_tools import vivado
 build_tool = build_vivado
 download_tool = vivado
 device =  "XC7A100T-CSG324-1"
-board="Atlys"
+board="Nexys4"
 
 def make_chip():
     chip = Chip("user_design")
